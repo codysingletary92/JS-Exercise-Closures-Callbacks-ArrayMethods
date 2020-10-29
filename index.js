@@ -27,11 +27,14 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ *    counter 1 invokes a second counter function when it's run and can be used multiple times, as where counter 2 can really only be used to\
+ *    count one thing over and over.
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ *    Counter 2 uses a closure becasue it reaches outside of the function to obtain data.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *    Counter 2 would be preferrable in simple programs where you just need to count one single thing, as where in counter 1, the same function can be recycled and used again to count multiple things.
 */
 
 // counter1 code
