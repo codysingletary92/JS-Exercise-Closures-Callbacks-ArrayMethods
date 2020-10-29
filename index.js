@@ -59,11 +59,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+   return Math.floor(Math.random() * 3);
 
 }
+
 
 /* Task 3: finalScore()
 
@@ -79,11 +80,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, numberOfInnings){
 
-  /*Code Here*/
+  let homeScore = 0
+  let awayScore = 0
+
+  for (i = 0; i <= numberOfInnings; i++){
+    homeScore += inning();
+    awayScore += inning();
+  }
+
+  return {
+    "Home": homeScore,
+    "Away": awayScore
+  }
 
 }
+
+console.log(finalScore(inning, 5))
 
 /* Task 4: 
 
@@ -107,8 +121,36 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inning, numberOfInnings) {
+  let homeScore = 0
+  let awayScore = 0
+  let inningOrdinal = "none"
+
+  for (i = 0; i <= numberOfInnings; i++){
+    homeScore += inning();
+    awayScore += inning();
+
+    if ( i+1 === 1){
+      inningOrdinal = "1st"
+    }
+    else if (i+1 === 2){
+      inningOrdinal = "2nd"
+    }
+    else if (i+1 === 3){
+      inningOrdinal = "3rd"
+    }
+    else {
+      inningOrdinal = i+"th"
+    }
+
+    printScore(inningOrdinal, homeScore, awayScore)
+
+  }
+
+  function printScore(ordinal, homeScore, awayScore){
+    return `${ordinal} inning: ${awayScore} - ${homeScore}`
+  }
+
 }
 
 
